@@ -1,0 +1,23 @@
+<h1>Lista Productos</h1>
+<table border="1">
+    <tr>
+        <th> categoria</th>
+        <th> codigo</th>
+        <th> descatalogado</th>
+        <th> descripción</th>
+        <th> fecha alta</th>
+        <th> nombre</th>
+        <th> precio</th>
+        <th> editar</th>
+    </tr>
+    <tr *ngFor='let producto of productos'>
+        <td >{{producto.categoria}}</td>
+        <td >{{producto.codigo}}</td>
+        <td >{{producto.descatalogado}}</td>
+        <td >{{producto.descripcion}}</td>
+        <td >{{producto.fechaAlta}}</td>
+        <td >{{producto.nombre}}</td>
+        <td >{{producto.precio}}</td>  
+        <td ><button (click)='editar(producto.codigo)'>Editar</button></td>    
+    </tr>
+</table>

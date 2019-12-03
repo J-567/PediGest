@@ -1,0 +1,14 @@
+<div *ngIf="editedProducto">
+    <h1>Editar Producto</h1>
+    Categoria: <select *ngIf='categorias' [(ngModel)]='editedProducto.categoria'>
+                    <option *ngFor='let categoria of categorias'>{{categoria}}</option>
+                </select><br>
+    Código: <input type="number" [(ngModel)]='editedProducto.codigo' disabled ><br>
+    Descatalogado: <input type="checkbox" [(ngModel)]='editedProducto.descatalogado' > <br>
+    Descripción: <input type="text" [(ngModel)]='editedProducto.descripcion' >  <br>
+    Fecha de alta: <input type="date" [(ngModel)]='editedProducto.fechaAlta'> <br>
+    Nombre: <input type="text" [(ngModel)]='editedProducto.nombre'> <br>
+    Precio: <input type="number" step='0.01' [(ngModel)]='editedProducto.precio'> <br>
+    <button (click)='update()'>Dar de alta</button>
+
+</div>

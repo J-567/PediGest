@@ -1,0 +1,16 @@
+<h1>Lista Pedidos</h1>
+<table *ngIf="pedidos" border="1">
+    <tr>
+        <th> Numero Pedido </th>
+        <th> Camarero </th>
+        <th> Mesa </th>
+        <th> Detalle Pedido</th>
+      
+    </tr>
+    <tr  *ngFor='let pedido of pedidos' >
+        <td > {{pedido.id}}</td>
+        <td > {{pedido.camarero.nombre}}</td>
+        <td > {{pedido.mesa}}</td>
+        <td> <button (click)='detallePedido(pedido.id)'> Detalle</button></td>
+    </tr>
+</table>

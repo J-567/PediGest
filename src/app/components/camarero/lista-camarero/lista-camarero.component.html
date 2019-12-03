@@ -1,0 +1,6 @@
+<h1>Lista Camareros</h1>
+<ul *ngIf='camareros'>
+    <li *ngFor='let camarero of camareros'>
+            {{'Código: ' + camarero.codigo + '   Nombre: ' + camarero.nombre}}
+    </li>
+</ul>

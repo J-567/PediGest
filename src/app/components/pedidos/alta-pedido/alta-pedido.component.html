@@ -1,0 +1,27 @@
+<p>Alta Pedido</p>
+Camarero: <select *ngIf='camareros' [(ngModel)]='pedido.camarero'>
+    <option *ngFor='let camarero of camareros' [(ngValue)]='camarero'>{{camarero.nombre}}</option>
+</select><br>
+Mesa: <input type="number" [(ngModel)]='pedido.mesa' ><br>
+Fecha: <input type="date" [(ngModel)]='pedido.fecha'> <br>
+<h1>Lista del pedido</h1>
+<table border="1">
+    <tr>
+        <th> producto</th>
+        <th> cantidad</th>
+        <th> precio</th>
+        <th> total </th>
+        <th> remove</th>
+    </tr>
+    <tr *ngFor='let lineaPedido of lineasPedido'  >
+        <td ><select (change)='getPrecio(lineaPedido)' *ngIf='productos' [(ngModel)]='lineaPedido.producto'>
+            <option *ngFor='let producto of productos' [(ngValue)]='producto'>{{producto.nombre}}</option>
+        </select><br></td>
+        <td ><input type="number"  [(ngModel)]='lineaPedido.cantidad'><br></td>
+        <td ><input type="number" [(ngModel)]='lineaPedido.precio'> </td>
+        <td> {{lineaPedido.cantidad * lineaPedido.precio}} </td>
+        <td ><button (click)='removeLinea(lineaPedido)'>Remove</button></td>    
+    </tr>
+</table>
+<button (click)='addLinea()'>Create line</button> <br>
+<button (click)='create()'> Crear pedido </button>

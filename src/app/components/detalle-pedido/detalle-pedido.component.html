@@ -1,0 +1,23 @@
+<div *ngIf="pedidoDetallado">
+    <h1>Detalle Pedido</h1>
+    Camarero: {{pedidoDetallado.camarero.nombre}}<br>
+    Mesa: {{pedidoDetallado.mesa}}<br>
+    Fecha: {{pedidoDetallado.fecha}} <br>
+    <p>Lista del pedido</p>
+    <table border="1" >
+        <tr>
+            <th> producto</th>
+            <th> cantidad</th>
+            <th> precio</th>
+            <th> total </th>
+        </tr>
+        <tr *ngFor='let lineaPedido of pedidoDetallado.lineasPedido'>
+            <td >{{lineaPedido.producto.nombre}}<br></td>
+            <td >{{lineaPedido.cantidad}}<br></td>
+            <td >{{lineaPedido.precio}} </td>
+            <td> {{lineaPedido.cantidad * lineaPedido.precio}} </td>    
+        </tr>
+        
+    </table>
+
+</div>

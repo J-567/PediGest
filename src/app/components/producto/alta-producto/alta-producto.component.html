@@ -1,0 +1,11 @@
+<h1>Alta Producto</h1>
+Categoria: <select *ngIf='categorias' [(ngModel)]='producto.categoria'>
+    <option *ngFor='let categoria of categorias'>{{categoria}}</option>
+</select><br>
+Código: <input type="number" [(ngModel)]='producto.codigo' ><br>
+Descatalogado: <input type="checkbox" [(ngModel)]='producto.descatalogado' > <br>
+Descripción: <input type="text" [(ngModel)]='producto.descripcion'> <br>
+Fecha de alta: <input type="date" [(ngModel)]='producto.fechaAlta'> <br>
+Nombre: <input type="text" [(ngModel)]='producto.nombre'> <br>
+Precio: <input type="number" step='0.01' [(ngModel)]='producto.precio'> <br>
+<button (click)='create()'>Dar de alta</button>
