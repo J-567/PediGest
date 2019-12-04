@@ -12,16 +12,23 @@ export class DetallePedidoComponent implements OnInit {
 
 
   pedidoDetallado:Pedido = undefined;
+  totalPedido:Number = undefined;
 
   constructor(private pedidoService:PedidoService,
               private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.params.subscribe(data => {
+
       this.pedidoService.getById(Number(data.codigo)).subscribe(datos => {
+        
         this.pedidoDetallado = datos;
+        this.totalPedido = this.pedidoService.getTotal(datos);
       });
     });
+
+    
+    
   }
 
 

@@ -2,7 +2,7 @@
     <h1>Detalle Pedido</h1>
     Camarero: {{pedidoDetallado.camarero.nombre}}<br>
     Mesa: {{pedidoDetallado.mesa}}<br>
-    Fecha: {{pedidoDetallado.fecha}} <br>
+    Fecha: {{pedidoDetallado.fecha | date: "dd/MM/yyyy ; hh:mm" }} <br>
     <p>Lista del pedido</p>
     <table border="1" >
         <tr>
@@ -17,7 +17,10 @@
             <td >{{lineaPedido.precio}} </td>
             <td> {{lineaPedido.cantidad * lineaPedido.precio}} </td>    
         </tr>
-        
+        <tr>
+            <td colspan="3">Total Pedido</td>
+           
+            <td> {{totalPedido}}</td>
+        </tr>
     </table>
-
 </div>

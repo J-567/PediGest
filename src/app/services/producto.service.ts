@@ -36,7 +36,5 @@ export class ProductoService {
   update(producto:Producto):Observable<Producto>{
     return this.http.put<Producto>(this.URL, producto)
   }
-
- 
-
+  
 }

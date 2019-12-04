@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Pedido } from '../model/pedido';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { LineaPedido } from '../model/lineaPedido';
 
 @Injectable({
   providedIn: 'root'
@@ -24,4 +25,12 @@ export class PedidoService {
     return this.http.get<Pedido>(this.URL + codigo);
   }
 
+  getTotal(pedido:Pedido):Number{
+    let total=0;
+    for (let lineaPedido of pedido.lineasPedido){
+      total+= lineaPedido.precio * lineaPedido.cantidad;
+    }
+    return total;
+  }
+  
 }

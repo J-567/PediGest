@@ -32,7 +32,6 @@ export class AltaPedidoComponent implements OnInit {
     this.productoService.getAll().subscribe(data => {
       this.productos = data;
     });
-    
   }
 
   addLinea(){
@@ -42,22 +41,19 @@ export class AltaPedidoComponent implements OnInit {
 
   getPrecio(lineaPedido:LineaPedido){
         this.productoService.getById(lineaPedido.producto.codigo).subscribe(producto => {
-        lineaPedido.precio = producto.precio;
+          lineaPedido.precio = producto.precio;
     });
   }
 
   removeLinea(lineaPedido:LineaPedido){
     let index = this.lineasPedido.indexOf(lineaPedido);
-    this.lineasPedido.splice(index, 1);
-   
+    this.lineasPedido.splice(index, 1);  
   }
 
   create(){
     this.pedido.lineasPedido = this.lineasPedido;
     console.log(this.pedido);
     this.pedidoService.create(this.pedido).subscribe(()=>
-      this.router.navigateByUrl('/listapedido')
-    );
+      this.router.navigateByUrl('/listapedido'));
   }
-
 }
