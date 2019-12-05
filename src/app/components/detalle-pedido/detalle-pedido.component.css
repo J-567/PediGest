@@ -1,4 +1,10 @@
-h2{
+body{
     color: black;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.container{
+    width: 50%;
+    max-width: 100%;
+    text-align: center;
 }

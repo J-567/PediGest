@@ -1,16 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
 <h1>Lista Pedidos</h1>
-<table *ngIf="pedidos" border="1">
+<div class="container">
+    <p-table class=" table" *ngIf="pedidos"  [value]="pedidos">
+    <ng-template pTemplate="header">
     <tr>
-        <th> Numero Pedido </th>
-        <th> Camarero </th>
-        <th> Mesa </th>
-        <th> Detalle Pedido</th>
+        <th class="pedido"> Numero Pedido </th>
+        <th class="camarero"> Camarero </th>
+        <th class="mesa"> Mesa </th>
+        <th class="detalle"> Detalle Pedido</th>
       
     </tr>
-    <tr  *ngFor='let pedido of pedidos' >
-        <td > {{pedido.id}}</td>
-        <td > {{pedido.camarero.nombre}}</td>
-        <td > {{pedido.mesa}}</td>
-        <td> <button (click)='detallePedido(pedido.id)'> Detalle</button></td>
+     </ng-template>
+     <ng-template pTemplate="body" let-pedido>
+    <tr   >
+        <td class="pedido"> {{pedido.id}}</td>
+        <td class="camarero"> {{pedido.camarero.nombre}}</td>
+        <td class="mesa"> {{pedido.mesa}}</td>
+        <td class="detalle"> <button pButton type="button" label="Detalle" class="ui-button-raised  ui-button-warning" (click)='detallePedido(pedido.id)'> </button></td>
     </tr>
-</table>
+     </ng-template>
+</p-table>
+</div>
+
+</body>
+</html>
