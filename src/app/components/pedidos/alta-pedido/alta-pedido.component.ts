@@ -54,7 +54,6 @@ export class AltaPedidoComponent implements OnInit {
 
   create(){
     this.pedido.lineasPedido = this.lineasPedido;
-    console.log(this.pedido);
     this.pedidoService.create(this.pedido).subscribe(()=>
       this.router.navigateByUrl('/listapedido'));
   }
