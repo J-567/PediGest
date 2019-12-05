@@ -16,6 +16,7 @@ import { ListaProductoComponent } from './components/producto/lista-producto/lis
 import { HomeComponent } from './components/home/home.component';
 import { EditProductoComponent } from './components/producto/edit-producto/edit-producto.component';
 import { DetallePedidoComponent } from './components/detalle-pedido/detalle-pedido.component';
+import { PrimengModule } from './primeng/primeng.module';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { DetallePedidoComponent } from './components/detalle-pedido/detalle-pedi
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    PrimengModule
   ],
   providers: [CamareroService],
   bootstrap: [AppComponent]

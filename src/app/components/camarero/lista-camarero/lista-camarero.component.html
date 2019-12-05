@@ -1,6 +1,29 @@
-<h1>Lista Camareros</h1>
-<ul *ngIf='camareros'>
-    <li *ngFor='let camarero of camareros'>
-            {{'Código: ' + camarero.codigo + '   Nombre: ' + camarero.nombre}}
-    </li>
-</ul>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <h1>Lista Camareros</h1>
+        
+        <p-table class="tablelista" *ngIf='camareros' [value]="camareros">
+            <ng-template pTemplate="header">
+            <tr>
+                <th> Codigo </th>
+                <th> Nombre </th>
+            </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-camarero>
+            <tr > 
+                <td> {{camarero.codigo}} </td>
+                <td> {{camarero.nombre}} </td>
+            </tr>
+            </ng-template>
+        </p-table>
+
+        
+</body>
+</html>

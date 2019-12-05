@@ -1,11 +1,58 @@
-<h1>Alta Producto</h1>
-Categoria: <select *ngIf='categorias' [(ngModel)]='producto.categoria'>
-    <option *ngFor='let categoria of categorias'>{{categoria}}</option>
-</select><br>
-Código: <input type="number" [(ngModel)]='producto.codigo' ><br>
-Descatalogado: <input type="checkbox" [(ngModel)]='producto.descatalogado' > <br>
-Descripción: <input type="text" [(ngModel)]='producto.descripcion'> <br>
-Fecha de alta: <input type="date" [(ngModel)]='producto.fechaAlta'> <br>
-Nombre: <input type="text" [(ngModel)]='producto.nombre'> <br>
-Precio: <input type="number" step='0.01' [(ngModel)]='producto.precio'> <br>
-<button (click)='create()'>Dar de alta</button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <h1>Alta Producto</h1>
+        <span class="ui-float-label">
+                <input  id="codigo" type="number" size="30"   pInputText [(ngModel)]='producto.codigo' > <br>
+                <label for="codigo">Código</label>
+            </span>
+        <br> 
+        <span class="ui-float-label">
+
+            <p-dropdown *ngIf='categorias' id="float-input"
+                    [options]="categorias"
+                    [(ngModel)]="producto.categoria" 
+                    placeholder=""  
+                    [optionLabel]="categorias.label"                    
+                    [showClear]="true"></p-dropdown>
+            <label for="float-input"> Categoria </label>
+        </span>
+        <br>
+        <span class="ui-float-label nombre" >
+                <input class="nombre" id="nombre" type="text" size="30"  pInputText [(ngModel)]='producto.nombre' > <br>
+                <label for="nombre">Nombre</label>
+        </span>
+        <br>
+        <span class="ui-float-label" >
+                <input  id="precio" type="number" size="30"  step='0.01' pInputText [(ngModel)]='producto.precio' > <br>
+                <label for="precio">Precio</label>
+        </span>
+        <br>
+        <span class="ui-float-label"> 
+            <textarea  id="descripcion" type="text" size="30"  rows="5" cols="30" pInputTextarea [(ngModel)]='producto.descripcion'> </textarea>
+            <label for="descripcion"> Descripción </label>
+        </span>
+        <br>
+        <div class="ui-g ui-fluid">
+                <div class="ui-float-label">
+                    <p-calendar id="fechadealta" [(ngModel)]="producto.fechaAlta"  dateFormat="dd/mm/yy"> </p-calendar>
+                    <label for="fechadealta">Fecha de alta</label>
+                </div>
+        </div>
+        <br>
+        
+        <p-checkbox [(ngModel)]="producto.descatalogado" binary="true" label="Descatalogado"></p-checkbox> <br>
+        <br>
+        <button  pButton type="button" label="Dar de alta" class="ui-button-rounded  ui-button-info" (click)='create()'></button>
+        
+
+        
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+body{
+    color: black;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+
+.caja{
+    width: 40%;
+}
+
+.nombre, .codigo{
+    width: 100%;
+}

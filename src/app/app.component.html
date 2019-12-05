@@ -1,12 +1,7 @@
-<router-outlet>
-  <nav>
-    <ul>
-      <li><a routerLink="/altacamarero">Alta Camarero</a></li>
-      <li><a routerLink="/listacamarero">Lista Camareros</a></li>
-      <li><a routerLink="/altaproducto">Alta productos</a></li>
-      <li><a routerLink="/listaproducto">Lista productos</a></li>
-      <li><a routerLink="/altapedido">Alta pedido</a></li>
-      <li><a routerLink="/listapedido">Lista pedidos</a></li>
-    </ul>
-  </nav>
-</router-outlet>
+
+<p-menu #menu [popup]="true" [model]="items"></p-menu>
+<button type="button" pButton icon="pi pi-bars" label="Menu" (click)="menu.toggle($event)"></button>
+<br>
+<br>
+
+<router-outlet> </router-outlet>

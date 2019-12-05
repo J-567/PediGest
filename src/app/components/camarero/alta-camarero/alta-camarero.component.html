@@ -1,4 +1,29 @@
-<h1>Alta Camarero</h1>
-Código: <input type="number" [(ngModel)]='camarero.codigo' ><br>
-Nombre: <input type="text" [(ngModel)]='camarero.nombre'> <br>
-<button (click)='create()'>Dar de alta</button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1> Alta camarero </h1>
+
+<div class="caja">
+<span class="ui-float-label">
+    <input  class="codigo" id="float-input" type="number" size="30"  pInputText [(ngModel)]='camarero.codigo'> 
+    <label for="float-input">Código</label>
+</span>
+    <br>
+<span class="ui-float-label">
+    <input class="nombre" id="float-input2" type="text" size="30"  pInputText [(ngModel)]='camarero.nombre' > 
+    <label for="float-input2">Nombre </label>
+</span>
+
+</div>
+    <br> 
+<button  pButton type="button" label="Dar de alta" class="ui-button-rounded  ui-button-info" (click)='create()'></button>
+
+</body>
+</html>
