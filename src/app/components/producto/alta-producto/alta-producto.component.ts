@@ -11,10 +11,8 @@ import { Router } from '@angular/router';
 export class AltaProductoComponent implements OnInit {
 
   producto:Producto = new Producto();
-  //categorias:string[] = undefined;
   categorias:any[] = [];
   
-
   constructor(private productoService:ProductoService,
               private router: Router) { }
 
@@ -26,8 +24,6 @@ export class AltaProductoComponent implements OnInit {
       for(let categoria of data){
         this.categorias.push({label:categoria, value:categoria});
       }
-      //this.categorias = data;
-      
     });
   }
 

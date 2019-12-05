@@ -25,9 +25,11 @@ export class AltaPedidoComponent implements OnInit {
                private productoService:ProductoService) { }
 
   ngOnInit() {
+
     this.camareroService.getAll().subscribe(data => {
-      this.camareros = data;
-    });
+        this.camareros = data;
+        this.pedido.camarero = new Camarero();
+      });
 
     this.productoService.getAll().subscribe(data => {
       this.productos = data;

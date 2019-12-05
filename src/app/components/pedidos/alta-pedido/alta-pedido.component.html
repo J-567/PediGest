@@ -1,27 +1,75 @@
-<p>Alta Pedido</p>
-Camarero: <select *ngIf='camareros' [(ngModel)]='pedido.camarero'>
-    <option *ngFor='let camarero of camareros' [(ngValue)]='camarero'>{{camarero.nombre}}</option>
-</select><br>
-Mesa: <input type="number" [(ngModel)]='pedido.mesa' ><br>
-Fecha: <input type="date" [(ngModel)]='pedido.fecha'> <br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h1>Alta Pedido</h1>
+<span class="ui-float-label">
+    <p-dropdown *ngIf='camareros'
+            name=""
+            id="float-input"
+            [options]="camareros"
+            [(ngModel)]="pedido.camarero" 
+            placeholder=""
+            optionLabel="nombre"                  
+            [showClear]="true"></p-dropdown>
+    <label for="float-input"> Camarero </label>
+</span>
+<br>
+<span class="ui-float-label" >
+        <input  id="precio" type="number" size="30"  pInputText [(ngModel)]='pedido.mesa' >
+        <label for="precio">Mesa</label>
+</span>
+<br>
+<div class="ui-g ui-fluid">
+        <div class="ui-float-label">
+            <p-calendar id="fechadealta" [(ngModel)]="pedido.fecha"  dateFormat="dd/mm/yy"> </p-calendar>
+            <label for="fechadealta">Fecha</label>
+        </div>
+</div>
+
+
 <h1>Lista del pedido</h1>
-<table border="1">
-    <tr>
-        <th> producto</th>
-        <th> cantidad</th>
-        <th> precio</th>
-        <th> total </th>
-        <th> remove</th>
-    </tr>
-    <tr *ngFor='let lineaPedido of lineasPedido'  >
-        <td ><select (change)='getPrecio(lineaPedido)' *ngIf='productos' [(ngModel)]='lineaPedido.producto'>
-            <option *ngFor='let producto of productos' [(ngValue)]='producto'>{{producto.nombre}}</option>
-        </select></td>
-        <td ><input type="number" [(ngModel)]='lineaPedido.cantidad' min="1"></td>
-        <td ><input type="number" [(ngModel)]='lineaPedido.precio' min="0"> </td>
-        <td><span *ngIf="lineaPedido.cantidad">{{lineaPedido.cantidad * lineaPedido.precio}} </span></td>
-        <td ><button (click)='removeLinea(lineaPedido)'>Remove</button></td>    
-    </tr>
-</table>
-<button (click)='addLinea()'>Create line</button> <br>
-<button (click)='create()'> Crear pedido </button>
+        <p-table class="table"  [value]="lineasPedido">
+            <ng-template pTemplate="header">
+            <tr>
+                <th> Producto </th>
+                <th> Cantidad </th>
+                <th> Precio </th>
+                <th> Total </th>
+                <th> Remove </th>
+                
+            </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-lineaPedido>
+            <tr > 
+                <td>
+                    <p-dropdown *ngIf='productos' (onChange)='getPrecio(lineaPedido)' 
+                        name=""
+                        id="float-input"
+                        [options]="productos"
+                        [(ngModel)]="lineaPedido.producto" 
+                        placeholder=""
+                        optionLabel="nombre"                  
+                        [showClear]="true">
+                    </p-dropdown>  
+                </td>
+
+                <td><input class="inputs"  type="number" step='1' size="30" min="1" pInputText [(ngModel)]='lineaPedido.cantidad' > </td>
+                <td><input class="inputs"  type="number" step='0.01' size="10" pInputText [(ngModel)]='lineaPedido.precio' > </td>
+                
+                <td> <span *ngIf="lineaPedido.cantidad">{{lineaPedido.cantidad * lineaPedido.precio}} </span></td>
+                 <td><button  pButton type="button" label="Remove" class="ui-button-raised  ui-button-danger" (click)='removeLinea(lineaPedido)'></button></td>            
+            </tr>
+            </ng-template>
+        </p-table>
+
+<br>
+
+<button  pButton type="button" label="Añadir linea" class="ui-button-rounded  ui-button-info " (click)='addLinea()'></button> {{"        "}}
+<button  pButton type="button" label="Crear pedido" class="ui-button-rounded  ui-button-success btnverde" (click)='create()'></button>
+</body>
