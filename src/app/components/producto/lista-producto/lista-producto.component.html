@@ -1,23 +1,38 @@
-<h1>Lista Productos</h1>
-<table border="1">
-    <tr>
-        <th> categoria</th>
-        <th> codigo</th>
-        <th> descatalogado</th>
-        <th> descripción</th>
-        <th> fecha alta</th>
-        <th> nombre</th>
-        <th> precio</th>
-        <th> editar</th>
-    </tr>
-    <tr *ngFor='let producto of productos'>
-        <td >{{producto.categoria}}</td>
-        <td >{{producto.codigo}}</td>
-        <td >{{producto.descatalogado}}</td>
-        <td >{{producto.descripcion}}</td>
-        <td >{{producto.fechaAlta}}</td>
-        <td >{{producto.nombre}}</td>
-        <td >{{producto.precio}}</td>  
-        <td ><button (click)='editar(producto.codigo)'>Editar</button></td>    
-    </tr>
-</table>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <h2>Lista Productos</h2>
+        <p-table class="tablelista table" *ngIf='productos' [value]="productos">
+            <ng-template pTemplate="header">
+            <tr>
+                <th> Código </th>
+                <th class='categoria'> Categoria </th>
+                <th class='nombre'> Nombre </th>
+                <th class='precio'> Precio </th>
+                <th class='descripcion'> Descripción </th>
+                <th class='fecha'> Fecha de alta </th>
+                <th class='descatalogado'> Descatalogado </th>
+            </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-producto>
+            <tr > 
+                <td> {{producto.codigo}} </td>
+                <td> {{producto.categoria}} </td>
+                <td> {{producto.nombre}} </td>
+                <td> {{producto.precio}} </td>
+                <td> {{producto.descripcion}} </td>
+                <td> {{producto.fechaAlta | date:'dd/MM/yyyy'}} </td>
+                <td> {{producto.descatalogado}} </td>
+            </tr>
+            </ng-template>
+        </p-table>
+
+        
+</body>
+</html>

@@ -2,3 +2,43 @@ h2{
     color: black;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
+.table{
+    width:100%;
+    text-align: center;
+}
+
+.fecha{
+    width:10%;
+}
+
+.precio{
+    width:5%;
+}
+
+.categoria{
+    width:10%;
+}
+
+.nombre{
+    width:10%;
+}
+
+.descatalogado{
+    width: 10%;
+}
+
+.descripcion{
+    width:15%;
+}
+
+th:first-child{
+    background-color: brown;
+    width: 5% !important;  /* para hacer override */
+    display: none;
+}
+
+td:first-child{
+    background-color: rgb(234, 236, 87) !important;
+    text-align:center;
+    display:none;
+}
